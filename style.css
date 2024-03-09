@@ -229,7 +229,7 @@
   .title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #fff;
+    /* color: #fff; */
     margin-bottom: 20px;
   }
   
@@ -237,7 +237,7 @@
     width: 100%;
     border-left: 7px solid;
     padding: 15px;
-    background-color: #3cc8cd;
+    /* background-color: #3cc8cd; */
   }
   .accordion-item:hover{
     border-left: 7px solid #000;
@@ -270,7 +270,7 @@
   }
   
   .icon{
-    border: 9px solid  white;
+    border: 9px solid  #3cc8cd;
     border-top-color: transparent;
     border-right-color: transparent;
     border-bottom-color: transparent;
@@ -288,7 +288,7 @@
     width: 100%;
     height: 1px;
     /* margin: 10px 0 10px 0; */
-    background-color: #fff;
+    background-color: #3cc8cd;
   }
   
   #i1{opacity: 0;}
