@@ -8,16 +8,36 @@
     /* border: solid; */
     text-align: start;
   }
+  html{
+    overflow-x: hidden;
+  }
   body{
     background-color: #f2f2f2;
+    animation: foldPaper 2s ease ;
+    transform-origin: right;
   }
-  
+
+  @keyframes foldPaper {
+    0% {
+      transform: perspective(500px) rotateY(-180deg);
+    }
+    /* 50% {
+      transform: perspective(500px) rotateY(-180deg);
+    } */
+    100% {
+      transform: perspective(500px) rotateY(-360deg);
+    }
+  }
   a{
     font-size: 18px;
     text-decoration: none;
     display: block;
   }
-  
+  p{
+    font-size: 14px;
+    align-items: center;
+    text-align: center;
+  }
 
   header{
     display: flex;
@@ -35,6 +55,7 @@
   }
   header .logo{
     animation: goright 1.5s ease forwards;
+    animation-delay: 1.5s;
   }
   @keyframes goright {
     0% {
@@ -59,8 +80,8 @@
   }
   header a{
     animation: gotop 0.5s ease forwards;
-  animation-delay: calc(0.2s * var(--i));
-  color: #000;
+    animation-delay: calc(0.3s * var(--i));
+  color: #3cc8cd;
   }
   header a:hover{
     text-decoration: underline;
@@ -86,6 +107,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 100px;
   }
 
   .container a{
@@ -107,25 +129,25 @@
   .container .c1{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     gap: 450px;
-    margin-bottom: 120px;
+    /* margin-bottom: 120px; */
     z-index: 999;
     /* border: solid; */
   }
   .container .c2{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     gap: 650px;
-    margin-bottom: 120px;
+    /* margin-bottom: 120px; */
     z-index: 999;
     /* border: solid; */
   }
   .container .c3{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     gap: 450px;
     z-index: 999;
 
@@ -141,9 +163,48 @@
   .container h2{
     cursor: pointer;
   }
+  .dots {
+    background-image: url("../img/dots.png");
+    height: 186px;
+    width: 204px;
+    background-repeat: no-repeat;
+    position: absolute;
+  }
+  .dots-up {
+    top: 200px;
+    right: 0;
+    animation: goo 2.5s ease forwards;
+    animation-delay: 0.5s;
+  }
+  .dots-down {
+    bottom: 200px;
+    left: 0;
+    animation: go 2.5s ease forwards;
+    animation-delay: 0.5s;
+  }
+  @keyframes goo {
+    0% {
+      transform: translateY(-1500px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes go {
+    0% {
+      transform: translateY(1500px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
   .container p{
     opacity: 0;
-    width: 300px;
+    width: 430px;
   }
   .content{
     width: 95%;
@@ -308,11 +369,7 @@
   #i5:hover p{opacity: 1;}
   #i6:hover p{opacity: 1;}
 
-  p{
-    font-size: 14px;
-    align-items: center;
-    text-align: center;
-  }
+  
   h3{
     align-items: center;
     text-align: center;

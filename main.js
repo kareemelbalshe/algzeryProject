@@ -29,20 +29,20 @@ itemHeaders.forEach((accordion) => {
 window.addEventListener("load",()=>{
     setInterval(()=>{
         i1.style.opacity="1"
-    },500)
-    setInterval(()=>{
-        i2.style.opacity="1"
-    },1000)
-    setInterval(()=>{
-        i3.style.opacity="1"
     },1500)
     setInterval(()=>{
-        i4.style.opacity="1"
+        i2.style.opacity="1"
     },2000)
     setInterval(()=>{
-        i5.style.opacity="1"
+        i3.style.opacity="1"
     },2500)
     setInterval(()=>{
-        i6.style.opacity="1"
+        i4.style.opacity="1"
     },3000)
+    setInterval(()=>{
+        i5.style.opacity="1"
+    },3500)
+    setInterval(()=>{
+        i6.style.opacity="1"
+    },4000)
 })
