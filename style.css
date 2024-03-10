@@ -164,7 +164,7 @@
     cursor: pointer;
   }
   .dots {
-    background-image: url("../img/dots.png");
+    background-image: url(../img/dots.png);
     height: 186px;
     width: 204px;
     background-repeat: no-repeat;
