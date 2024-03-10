@@ -171,20 +171,20 @@
     position: absolute;
   }
   .dots-up {
-    top: 200px;
-    right: 0;
-    animation: goo 2.5s ease forwards;
+    top: 150px;
+    right: 50px;
+    animation: goo 3s ease forwards;
     animation-delay: 0.5s;
   }
   .dots-down {
-    bottom: 200px;
-    left: 0;
-    animation: go 2.5s ease forwards;
+    bottom: 50px;
+    left: 50px;
+    animation: go 3s ease forwards;
     animation-delay: 0.5s;
   }
-  @keyframes goo {
+  @keyframes go {
     0% {
-      transform: translateY(-1500px);
+      transform: translateY(-2000px);
       opacity: 0;
     }
     100% {
@@ -192,9 +192,9 @@
       opacity: 1;
     }
   }
-  @keyframes go {
+  @keyframes goo {
     0% {
-      transform: translateY(1500px);
+      transform: translateY(2000px);
       opacity: 0;
     }
     100% {
