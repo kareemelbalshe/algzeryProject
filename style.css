@@ -650,6 +650,12 @@ border: none;
         transform: translateY(-15px);
     }
 }
+
+  }
+  @media screen and (max-width: 600px) {
+    .dots{
+      display: none;
+    }
     .content section{
       flex-direction: column;
     }
