@@ -233,6 +233,7 @@ header a:hover {
   width: 100%;
   margin-bottom: 100px;
   height: 500px;
+  transition: 1s ease;
 }
 .content section img {
   width: 35%;
@@ -284,6 +285,7 @@ header a:hover {
   width: 80%;
   margin: auto;
   margin-bottom: 50px;
+  transition: 1s;
 }
 .content article .info {
   width: 49%;
