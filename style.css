@@ -489,7 +489,7 @@ h3 {
   font-weight: bold;
   outline: none;
   border: none;
-  border-bottom: solid grey;
+  border-bottom: solid #ccc;
   padding: 12px;
   background-color: #f2f2f2;
   border-radius: 10px;
