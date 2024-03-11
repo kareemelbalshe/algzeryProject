@@ -15,6 +15,18 @@ window.addEventListener('load', () => {
         menuBtn.style.display = 'inline-block';
     }
 })
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+        menuBtn.style.display = "none"
+        closeBtn.style.display = "none"
+        menu.style.display = "flex"
+    }
+    else {
+        menu.style.display = 'none';
+        closeBtn.style.display = 'none';
+        menuBtn.style.display = 'inline-block';
+    }
+})
 menuBtn.addEventListener('click', () => {
     menu.style.display = 'flex';
     closeBtn.style.display = 'inline-block';
