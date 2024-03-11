@@ -176,7 +176,7 @@ header a:hover {
   cursor: pointer;
 }
 .dots {
-  background-image: url(../img/dots.png);
+  /* background-image: url(../img/dots.png); */
   height: 186px;
   width: 204px;
   background-repeat: no-repeat;
@@ -428,7 +428,7 @@ h3 {
   flex-wrap: wrap;
 }
 .Portfolio .section .card {
-  width: 350px;
+  width: 330px;
   display: flex;
   align-items: center;
   justify-content: center;
