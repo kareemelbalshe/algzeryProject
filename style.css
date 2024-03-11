@@ -16,7 +16,15 @@ body {
   animation: foldPaper 2s ease;
   transform-origin: right;
 }
-
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #3cc8cd;
+}
 @keyframes foldPaper {
   0% {
     transform: perspective(500px) rotateY(-180deg);
