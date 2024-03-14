@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // You can process the form data here, such as sending an email, saving to a database, etc.
     
     // Example: send email
-    $to = "your_email@example.com";
+    $to = "kareemelbalshe1234@gmail.com";
     $subject = "New Contact Form Submission";
     $message = "First Name: $first_name\nLast Name: $last_name\nCompany Name: $company_name\nSolution Type: $solution_type\nDescription: $description";
     $headers = "From: $first_name <$to>";

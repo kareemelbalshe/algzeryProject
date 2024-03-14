@@ -12,19 +12,13 @@ html {
   overflow-x: hidden;
 }
 body {
-  background-color: #f2f2f2;
+  background-color: #000;
   animation: foldPaper 2s ease;
   transform-origin: right;
   overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-  width: 9px;
-}
-::-webkit-scrollbar-track {
-  background-color: #f2f2f2;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #3cc8cd;
+  width: 0;
 }
 @keyframes foldPaper {
   0% {
@@ -60,7 +54,7 @@ header {
   left: 50%;
   transform: translateX(-50%);
   position: fixed;
-  background-color: #f2f2f2;
+  background-color: #000;
   z-index: 99999999999999;
   padding: 20px;
 }
@@ -79,7 +73,7 @@ header .logo {
   }
 }
 header .logo img {
-  width: 80px;
+  width: 120px;
   display: block;
   border-radius: 50%;
 }
@@ -117,7 +111,7 @@ header a:hover {
   height: 70vh;
   width: 80%;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -167,6 +161,9 @@ header a:hover {
   z-index: 999;
 
   /* border: solid; */
+}
+.link{
+  margin: 20px;
 }
 .container .part {
   display: flex;
@@ -238,8 +235,10 @@ header a:hover {
   height: 500px;
   transition: 1s ease;
 }
-.content section img {
+.content section .img {
   width: 35%;
+  opacity: 0;
+  transition: 1s ease;
 }
 .content section .info {
   position: relative;
@@ -253,12 +252,11 @@ header a:hover {
   border-radius: 10px;
   padding: 30px;
 }
-.content section .info img {
+.content section .info .image img {
   width: 75px;
   display: block;
-  opacity: 1;
 }
-.content section .info span {
+.content section .info .image {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -272,6 +270,10 @@ header a:hover {
   border: 1px solid #ccc;
   z-index: 2;
 }
+section:hover .img{
+  opacity: 1;
+}
+
 .content section .info h1 {
   color: #000;
   text-align: left;
@@ -279,6 +281,11 @@ header a:hover {
 .content section .info p {
   color: #000;
   text-align: left;
+  opacity: 0;
+  transition: 1s ease;
+}
+.content .info:hover p{
+  opacity: 1;
 }
 .content article {
   display: flex;
@@ -319,13 +326,13 @@ header a:hover {
 
 .accordion-item {
   width: 100%;
-  border-left: 7px solid;
+  border-left: 7px solid #3cc8cd;
   padding: 15px;
   /* background-color: #3cc8cd; */
 }
 .accordion-item:hover {
-  border-left: 7px solid #000;
-  background-color: #ccc;
+  border-left: 7px solid #42c2c6;
+  background-color: #090909;
 }
 .accordion-item-header {
   gap: 1em;
@@ -440,6 +447,8 @@ h3 {
   justify-content: center;
   margin-bottom: 50px;
   position: relative;
+  background-color: #fff;
+  border-radius: 20px;
 }
 .Portfolio .section .card:hover .info-card {
   opacity: 1;
@@ -456,6 +465,7 @@ h3 {
   flex-direction: column;
   border-radius: 20px;
   opacity: 0;
+  padding: 10px;
 }
 .Portfolio .section .card img {
   width: 100%;
@@ -495,30 +505,32 @@ h3 {
   font-weight: bold;
   outline: none;
   border: none;
-  border-bottom: solid #ccc;
+  border-bottom: solid #fff;
   padding: 12px;
-  background-color: #f2f2f2;
+  background-color: #000;
   border-radius: 10px;
 }
 .contect .right form input:focus {
-  border-bottom: solid #000;
+  border-bottom: solid #3cc8cd;
+  background-color: #090909;
 }
 .contect .right form select {
   width: 70%;
   font-weight: bold;
   outline: none;
   border: none;
-  border-bottom: solid grey;
+  border-bottom: solid #fff;
   padding: 12px;
-  background-color: #f2f2f2;
+  background-color: #000;
   border-radius: 10px;
 }
 .contect .right form select:focus {
-  border-bottom: solid #000;
+  border-bottom: solid #3cc8cd;
+  background-color: #090909;
 }
 .contect .right form button {
   width: 300px;
-  background-color: #000;
+  background-color: #3cc8cd;
   padding: 20px;
   text-align: center;
   font-size: 18px;
@@ -532,15 +544,16 @@ h3 {
   font-weight: bold;
   outline: none;
   border: none;
-  border-bottom: solid grey;
+  border-bottom: solid #fff;
   padding: 12px;
-  background-color: #f2f2f2;
+  background-color: #000;
   border-radius: 10px;
   height: 200px;
   resize: none;
 }
 .contect .right form textarea:focus {
-  border-bottom: solid #000;
+  border-bottom: solid #3cc8cd;
+  background-color: #090909;
 }
 .contect .right form label {
   margin-top: 10px;
@@ -627,19 +640,18 @@ h3 {
       display: none;
     } */
   .container {
-    align-items: center;
-    justify-content: center;
+
     gap: 50px;
     position: initial;
     top: 0;
     height: max-content;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
   }
   .container .logo {
+    margin-top: -150px;
     position: initial;
-    top: 0;
-    left: 0;
     transform: translate(0, 0);
+    margin-bottom: -150px;
   }
   .container p {
     width: 300px;
