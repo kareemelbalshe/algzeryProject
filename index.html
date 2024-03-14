@@ -3,21 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Main</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="img/1 (1) - Copy.icon" />
+    <link rel="icon" href="web.svg" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css "
     />
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="web_HTML5 Canvas_Scene 2.js"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("2AE04A93626588428922ADE66D8E601E");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.web_HTML5Canvas_Scene2();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
   </head>
-  <body>
+  <body onload="init();">
     <div class="dots dots-up"><img src="img/dots.png" alt=""></div>
     <div class="dots dots-down"><img src="img/dots.png" alt=""></div>
     <header>
       <div class="logo">
         <a href="index.html">
-          <img src="img/1 (1).png" alt="" />
+          <img src="web_HTML5 Canvas_Scene 2.svg" alt="">        
         </a>
       </div>
       <ul class="nav_menu">
@@ -31,7 +74,13 @@
     </header>
     <div class="container">
       <div class="logo">
-        <img src="img/1 1).png" alt="" />
+        <div id="animation_container" style="width:600px;height: 600px;" >
+          
+          <!-- <img src="web_HTML5 Canvas_Scene 2.svg" alt=""> -->
+          <canvas id="canvas" width="600" height="600" style="position: absolute; display: block;"></canvas>
+          <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width: 600px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+          </div>
+        </div>
       </div>
       <div class="go-down">
         <i class="fas fa-angle-double-down fa-2x"></i>
@@ -42,7 +91,7 @@
       </div>
       <div class="c2">
         <a class="link" id="i6" href="article.html">Articles</a>
-        <a class="link" id="i3" href="FAQ .html">FAQ</a>
+        <a class="link" id="i3" href="FAQ.html">FAQ</a>
       </div>
       <div class="c3">
         <a class="link" id="i5" href="contact.html">Contact Us</a>

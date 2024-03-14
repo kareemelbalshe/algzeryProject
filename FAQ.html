@@ -3,19 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>FAQ</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="img/1 (1) - Copy.icon" />
+    <link rel="icon" href="web.svg" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css "
     />
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+      import {
+        doc,
+        getDoc,
+        getFirestore,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      import { firebaseConfig } from "./firebaseConfig.js";
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const faqRef = doc(db, "faq", "M9MPswladW7S0IIg0kuD");
+      
+      // Function to get document data
+      const docSnap = await getDoc(faqRef);
+      const data = docSnap.data();
+      const article = document.getElementById("f");
+      var result = Object.keys(data).map((key) => [key, data[key]]);
+      result.map((element) => {
+        article.innerHTML += `
+      <div class="accordion-item">
+      <div class="accordion-item-header">
+        <div class="accordion-item-title">
+          <span class="icon"></span>${element[1].q}
+        </div>
+      </div>
+      <div class="accordion-item-body">
+        <div class="accordion-item-body-content">
+        ${element[1].a}
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  `;
+      });
+      const itemHeaders = document.querySelectorAll(".accordion-item-header");
+
+      itemHeaders.forEach((accordion) => {
+        accordion.addEventListener("click", collapseAccordions);
+        function collapseAccordions() {
+          const activeAccordion = document.querySelector(".active");
+          if (activeAccordion && activeAccordion !== accordion) {
+            activeAccordion.classList.toggle("active");
+            activeAccordion.nextElementSibling.style.maxHeight = 0;
+          }
+
+          accordion.classList.toggle("active");
+          const accordionItemBody = accordion.nextElementSibling;
+
+          if (accordion.classList.contains("active")) {
+            accordionItemBody.style.maxHeight =
+              accordionItemBody.scrollHeight + "px";
+          } else {
+            accordionItemBody.style.maxHeight = 0;
+          }
+        }
+      });
+
+      // Call the function to get document data
+    </script>
   </head>
   <body>
     <header>
       <div class="logo">
         <a href="index.html">
-          <img src="img/1 (1).png" alt="" />
+          <img src="web_HTML5 Canvas_Scene 2.svg" alt="" />
         </a>
       </div>
       <ul class="nav_menu">
@@ -27,7 +93,7 @@
       <button id="open-menu-btn"><i class="fas fa-bars"></i></button>
       <button id="close-menu-btn"><i class="fas fa-times"></i></button>
     </header>
-    <div class="faq">
+    <div class="faq" id="f">
       <div class="title">FAQ</div>
       <div class="divider"></div>
       <div class="accordion-item">
@@ -217,7 +283,6 @@
       </div>
       <div class="divider"></div>
     </div>
-
     <script src="main.js"></script>
   </body>
 </html>
