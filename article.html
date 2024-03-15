@@ -10,12 +10,70 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css "
     />
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+      import {
+        doc,
+        getDoc,
+        getFirestore,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      import { firebaseConfig } from "./firebaseConfig.js";
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const articleRef = doc(db, "article", "zaOskqpNOBc7GmReb67f");
+
+      const docSnap = await getDoc(articleRef);
+      const data = docSnap.data();
+      const article = document.getElementById("a");
+      var result = Object.keys(data).map((key) => [key, data[key]]);
+      console.log(result);
+      result.map((element) => {
+        console.log(element);
+        article.innerHTML += `
+    <article>
+            <img src="${element[1].img}" alt="" />
+    
+            <div class="info">
+              <h3>${element[1].title}</h3>
+              <p>
+                ${element[1].dis}
+              </p>
+            </div>
+          </article>
+    `;
+      });
+      document.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll("article");
+
+        window.addEventListener("scroll", function () {
+          sections.forEach(function (section) {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight * 0.75) {
+              section.style.opacity = 1;
+              section.style.transform = "translateX(0)";
+            } else {
+              section.style.opacity = 0;
+              section.style.transform = "translateX(-100%)";
+            }
+          });
+        });
+      });
+
+    </script>
   </head>
   <body>
     <header>
       <div class="logo">
         <a href="index.html">
-          <img src="web_HTML5 Canvas_Scene 2.svg" alt="">        
+          <img src="web_HTML5 Canvas_Scene 2.svg" alt="" />
         </a>
       </div>
       <ul class="nav_menu">
@@ -30,7 +88,5 @@
     <div class="content" id="a"></div>
 
     <script src="main.js"></script>
-    <script src="animation.js"></script>
-    <script type="module" src="firepase.js"></script>
   </body>
 </html>

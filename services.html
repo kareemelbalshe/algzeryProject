@@ -12,28 +12,32 @@
     />
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-// import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-import { doc, getDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+      import {
+        doc,
+        getDoc,
+        getFirestore,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-import { firebaseConfig } from "./firebaseConfig.js";
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      import { firebaseConfig } from "./firebaseConfig.js";
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
 
       const serviceRef = doc(db, "service", "zV5Tm4xRynuwoQhkyekR");
-// Function to get document data
-    const docSnap = await getDoc(serviceRef);
-      const data = docSnap.data()
-      const article = document.getElementById("s")
+      // Function to get document data
+      const docSnap = await getDoc(serviceRef);
+      const data = docSnap.data();
+      const article = document.getElementById("s");
       var result = Object.keys(data).map((key) => [key, data[key]]);
-      result.map(element => {
+      result.map((element) => {
         // console.log(element)
-        if(element[1].type==="web"){
-        if(element[0]%2===0){
-          article.innerHTML += `
+        if (element[1].type === "web") {
+          if (element[0] % 2 === 0) {
+            article.innerHTML += `
         <section>
         <div class="info">
           <span class="image"><img src="img/code.png" alt="" /></span>
@@ -45,10 +49,9 @@ const db = getFirestore(app);
         </div>
         <img class="img" src="${element[1].img}" alt="" />
       </section>
-      `
-        }
-        else{
-          article.innerHTML += `
+      `;
+          } else {
+            article.innerHTML += `
         <section>
         <img class="img" src="${element[1].img}" alt="" />
         <div class="info">
@@ -60,12 +63,12 @@ const db = getFirestore(app);
           </p>
         </div>
       </section>
-      `
+      `;
+          }
         }
-      }
-        if(element[1].type==="mobile"){
-        if(element[0]%2===0){
-          article.innerHTML += `
+        if (element[1].type === "mobile") {
+          if (element[0] % 2 === 0) {
+            article.innerHTML += `
           <section>
           <div class="info">
           <span class="image" ><img src="img/developer.png" alt="" /></span>
@@ -77,10 +80,9 @@ const db = getFirestore(app);
           </div>
           <img class="img" src="${element[1].img}" alt="" />
         </section>
-      `
-        }
-        else{
-          article.innerHTML += `
+      `;
+          } else {
+            article.innerHTML += `
           <section>
           <img class="img" src="${element[1].img}" alt="" />
           <div class="info">
@@ -92,12 +94,12 @@ const db = getFirestore(app);
             </p>
           </div>
         </section>
-      `
+      `;
+          }
         }
-      }
-        if(element[1].type==="marketing"){
-        if(element[0]%2===0){
-          article.innerHTML += `
+        if (element[1].type === "marketing") {
+          if (element[0] % 2 === 0) {
+            article.innerHTML += `
           <section>
         <div class="info">
           <span class="image" ><img src="img/marketing.png" alt="" /></span>
@@ -109,10 +111,9 @@ const db = getFirestore(app);
         </div>
         <img class="img" src="${element[1].img}" alt="" />
       </section>
-      `
-        }
-        else{
-          article.innerHTML += `
+      `;
+          } else {
+            article.innerHTML += `
           <section>
           <img class="img" src="${element[1].img}" alt="" />
         <div class="info">
@@ -124,12 +125,12 @@ const db = getFirestore(app);
           </p>
         </div>
       </section>
-      `
+      `;
+          }
         }
-      }
-        if(element[1].type==="seo"){
-        if(element[0]%2===0){
-          article.innerHTML += `
+        if (element[1].type === "seo") {
+          if (element[0] % 2 === 0) {
+            article.innerHTML += `
           <section>
           <div class="info">
           <span class="image" ><img src="img/seo.png" alt="" /></span>
@@ -141,10 +142,9 @@ const db = getFirestore(app);
           </div>
           <img class="img" src="${element[1].img}" alt="" />
       </section>
-      `
-        }
-        else{
-          article.innerHTML += `
+      `;
+          } else {
+            article.innerHTML += `
           <section>
         <img class="img" src="${element[1].img}" alt="" />
         <div class="info">
@@ -156,12 +156,12 @@ const db = getFirestore(app);
           </p>
         </div>
       </section>
-      `
+      `;
+          }
         }
-      }
-        if(element[1].type==="social"){
-        if(element[0]%2===0){
-          article.innerHTML += `
+        if (element[1].type === "social") {
+          if (element[0] % 2 === 0) {
+            article.innerHTML += `
           <section>
         <div class="info">
           <span class="image"><img src="img/content-management.png" alt="" /></span>
@@ -173,10 +173,9 @@ const db = getFirestore(app);
         </div>
         <img class="img" src="${element[1].img}" alt="" />
       </section>
-      `
-        }
-        else{
-          article.innerHTML += `
+      `;
+          } else {
+            article.innerHTML += `
           <section>
           <img class="img" src="${element[1].img}" alt="" />
         <div class="info">
@@ -188,45 +187,42 @@ const db = getFirestore(app);
           </p>
         </div>
       </section>
-      `
+      `;
+          }
         }
-      }
-    })
-    document.addEventListener("scroll", function() {
-    const sections = document.querySelectorAll('section');
+      });
+      document.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll("section");
 
-    window.addEventListener('scroll', function() {
-        sections.forEach(function(section,i) {
+        window.addEventListener("scroll", function () {
+          sections.forEach(function (section, i) {
             const sectionTop = section.getBoundingClientRect().top;
             const windowHeight = window.innerHeight;
 
             if (sectionTop < windowHeight * 0.75) {
-                section.style.opacity = 1;
-                section.style.transform= 'translateX(0)';
+              section.style.opacity = 1;
+              section.style.transform = "translateX(0)";
             } else {
-                if(i%2===0){
-                    section.style.opacity = 0;
-                    section.style.transform= 'translateX(-100%)';
-                }
-                else{
-                    section.style.opacity = 0;
-                    section.style.transform= 'translateX(100%)';
-                }
+              if (i % 2 === 0) {
+                section.style.opacity = 0;
+                section.style.transform = "translateX(-100%)";
+              } else {
+                section.style.opacity = 0;
+                section.style.transform = "translateX(100%)";
+              }
             }
+          });
         });
-    });
-});
+      });
 
-
-  
-// Call the function to get document data
+      // Call the function to get document data
     </script>
   </head>
   <body>
     <header>
       <div class="logo">
         <a href="index.html">
-          <img src="web_HTML5 Canvas_Scene 2.svg" alt="">        
+          <img src="web_HTML5 Canvas_Scene 2.svg" alt="" />
         </a>
       </div>
       <ul class="nav_menu">
@@ -238,79 +234,7 @@ const db = getFirestore(app);
       <button id="open-menu-btn"><i class="fas fa-bars"></i></button>
       <button id="close-menu-btn"><i class="fas fa-times"></i></button>
     </header>
-    <div class="content" id="s">
-      <section >
-        <div class="info">
-          <span class="image"><img src="img/code.png" alt="" /></span>
-
-          <h1>Website Development</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro
-            dolor totam, enim culpa necessitatibus assumenda explicabo officia
-            beatae odio eum. Adipisci excepturi ipsum fugit, repellendus eos est
-            sunt perspiciatis!
-          </p>
-        </div>
-        <img class="img" src="img/logo.jpg" alt="" />
-      </section>
-      <section>
-        <img class="img" src="img/logo.jpg" alt="" />
-        <div class="info">
-          <span class="image" ><img src="img/developer.png" alt="" /></span>
-
-          <h1>Mobile App Development</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro
-            dolor totam, enim culpa necessitatibus assumenda explicabo officia
-            beatae odio eum. Adipisci excepturi ipsum fugit, repellendus eos est
-            sunt perspiciatis!
-          </p>
-        </div>
-      </section>
-      <section>
-        <div class="info">
-          <span class="image" ><img src="img/marketing.png" alt="" /></span>
-
-          <h1>Digital Marketing</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro
-            dolor totam, enim culpa necessitatibus assumenda explicabo officia
-            beatae odio eum. Adipisci excepturi ipsum fugit, repellendus eos est
-            sunt perspiciatis!
-          </p>
-        </div>
-        <img class="img" src="img/logo.jpg" alt="" />
-      </section>
-      <section>
-        <img class="img" src="img/logo.jpg" alt="" />
-        <div class="info">
-          <span class="image" ><img src="img/seo.png" alt="" /></span>
-
-          <h1>SEO</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro
-            dolor totam, enim culpa necessitatibus assumenda explicabo officia
-            beatae odio eum. Adipisci excepturi ipsum fugit, repellendus eos est
-            sunt perspiciatis!
-          </p>
-        </div>
-      </section>
-      <section>
-        <div class="info">
-          <span class="image"><img src="img/content-management.png" alt="" /></span>
-
-          <h1>Social Media Management</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro
-            dolor totam, enim culpa necessitatibus assumenda explicabo officia
-            beatae odio eum. Adipisci excepturi ipsum fugit, repellendus eos est
-            sunt perspiciatis!
-          </p>
-        </div>
-        <img class="img" src="img/logo.jpg" alt="" />
-      </section>
-    </div>
+    <div class="content" id="s"></div>
     <script src="main.js"></script>
-    <!-- <script src="animation.js"></script> -->
   </body>
 </html>
