@@ -11,56 +11,165 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css "
     />
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="web_HTML5 Canvas_Scene 2.js"></script>
-<script>
-var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-function init() {
-	canvas = document.getElementById("canvas");
-	anim_container = document.getElementById("animation_container");
-	dom_overlay_container = document.getElementById("dom_overlay_container");
-	var comp=AdobeAn.getComposition("2AE04A93626588428922ADE66D8E601E");
-	var lib=comp.getLibrary();
-	var loader = new createjs.LoadQueue(false);
-	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
-	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
-	var lib=comp.getLibrary();
-	loader.loadManifest(lib.properties.manifest);
-}
-function handleFileLoad(evt, comp) {
-	var images=comp.getImages();	
-	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
-}
-function handleComplete(evt,comp) {
-	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-	var lib=comp.getLibrary();
-	var ss=comp.getSpriteSheet();
-	var queue = evt.target;
-	var ssMetadata = lib.ssMetadata;
-	for(i=0; i<ssMetadata.length; i++) {
-		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-	}
-	exportRoot = new lib.web_HTML5Canvas_Scene2();
-	stage = new lib.Stage(canvas);	
-	//Registers the "tick" event listener.
-	fnStartAnimation = function() {
-		stage.addChild(exportRoot);
-		createjs.Ticker.framerate = lib.properties.fps;
-		createjs.Ticker.addEventListener("tick", stage);
-	}	    
-	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
-	AdobeAn.compositionLoaded(lib.properties.id);
-	fnStartAnimation();
-}
-</script>
+    <script src="web_HTML5 Canvas_Scene 2.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+      import {
+        doc,
+        getDoc,
+        getFirestore,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      import { firebaseConfig } from "./firebaseConfig.js";
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      const howRef = doc(db, "about", "about");
+      // Function to get document data
+
+      const docSnap = await getDoc(howRef);
+      const data = docSnap.data();
+      const article = document.getElementById("a");
+      var result = Object.keys(data).map((key) => [key, data[key]]);
+      // console.log(result);
+      article.innerHTML += `
+      <div class="c1">
+          <div class="part" id="i1">
+            <h2>${result[0][1].title}</h2>
+            <p>
+              ${result[0][1].dis}
+            </p>
+          </div>
+          <div class="part" id="i2">
+            <h2>${result[1][1].title}</h2>
+            <p>
+              ${result[1][1].dis}
+            </p>
+          </div>
+        </div>
+        <div class="c2">
+          <div class="part" id="i5">
+            <h2>${result[2][1].title}</h2>
+            <p>
+              ${result[2][1].dis}
+            </p>
+          </div>
+          <div class="part" id="i3">
+            <h2>${result[3][1].title}</h2>
+            <p>
+              ${result[3][1].dis}
+            </p>
+          </div>
+        </div>
+        <div class="c3">
+          <div class="part" id="i4">
+            <h2 style="text-align: center;width:300px">${result[4][1].title}</h2>
+            <p>
+              ${result[4][1].dis}
+            </p>
+          </div>
+          <div class="" style="width: 430px;"></div>
+        </div>
+    `;
+      const i1 = document.getElementById("i1");
+      const i2 = document.getElementById("i2");
+      const i3 = document.getElementById("i3");
+      const i4 = document.getElementById("i4");
+      const i5 = document.getElementById("i5");
+
+      setInterval(() => {
+        i1.style.opacity = "1";
+      }, 1500);
+      setInterval(() => {
+        i2.style.opacity = "1";
+      }, 2000);
+      setInterval(() => {
+        i3.style.opacity = "1";
+      }, 2500);
+      setInterval(() => {
+        i4.style.opacity = "1";
+      }, 3000);
+      setInterval(() => {
+        i5.style.opacity = "1";
+      }, 3500);
+      setInterval(() => {
+        i6.style.opacity = "1";
+      }, 4000);
+    </script>
+
+    <script>
+      var canvas,
+        stage,
+        exportRoot,
+        anim_container,
+        dom_overlay_container,
+        fnStartAnimation;
+      function init() {
+        canvas = document.getElementById("canvas");
+        anim_container = document.getElementById("animation_container");
+        dom_overlay_container = document.getElementById(
+          "dom_overlay_container"
+        );
+        var comp = AdobeAn.getComposition("2AE04A93626588428922ADE66D8E601E");
+        var lib = comp.getLibrary();
+        var loader = new createjs.LoadQueue(false);
+        loader.addEventListener("fileload", function (evt) {
+          handleFileLoad(evt, comp);
+        });
+        loader.addEventListener("complete", function (evt) {
+          handleComplete(evt, comp);
+        });
+        var lib = comp.getLibrary();
+        loader.loadManifest(lib.properties.manifest);
+      }
+      function handleFileLoad(evt, comp) {
+        var images = comp.getImages();
+        if (evt && evt.item.type == "image") {
+          images[evt.item.id] = evt.result;
+        }
+      }
+      function handleComplete(evt, comp) {
+        //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+        var lib = comp.getLibrary();
+        var ss = comp.getSpriteSheet();
+        var queue = evt.target;
+        var ssMetadata = lib.ssMetadata;
+        for (i = 0; i < ssMetadata.length; i++) {
+          ss[ssMetadata[i].name] = new createjs.SpriteSheet({
+            images: [queue.getResult(ssMetadata[i].name)],
+            frames: ssMetadata[i].frames,
+          });
+        }
+        exportRoot = new lib.web_HTML5Canvas_Scene2();
+        stage = new lib.Stage(canvas);
+        //Registers the "tick" event listener.
+        fnStartAnimation = function () {
+          stage.addChild(exportRoot);
+          createjs.Ticker.framerate = lib.properties.fps;
+          createjs.Ticker.addEventListener("tick", stage);
+        };
+        //Code to support hidpi screens and responsive scaling.
+        AdobeAn.makeResponsive(false, "both", false, 1, [
+          canvas,
+          anim_container,
+          dom_overlay_container,
+        ]);
+        AdobeAn.compositionLoaded(lib.properties.id);
+        fnStartAnimation();
+      }
+    </script>
   </head>
   <body onload="init();">
-    <div class="dots dots-up"><img src="img/dots.png" alt=""></div>
-    <div class="dots dots-down"><img src="img/dots.png" alt=""></div>
+    <!-- <div class="dots dots-up"><img src="img/dots.png" alt="" /></div>
+    <div class="dots dots-down"><img src="img/dots.png" alt="" /></div> -->
     <header>
       <div class="logo">
         <a href="index.html">
-          <img src="web_HTML5 Canvas_Scene 2.svg" alt="">        
+          <img src="web_HTML5 Canvas_Scene 2.svg" alt="" />
         </a>
       </div>
       <ul class="nav_menu">
@@ -74,61 +183,34 @@ function handleComplete(evt,comp) {
     </header>
     <div class="container">
       <div class="logo">
-        <div id="animation_container" style="width:600px;height: 600px;" >
-          
+        <div id="animation_container" style="width: 600px; height: 600px">
           <!-- <img src="web_HTML5 Canvas_Scene 2.svg" alt=""> -->
-          <canvas id="canvas" width="600" height="600" style="position: absolute; display: block;"></canvas>
-          <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width: 600px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
-          </div>
+          <canvas
+            id="canvas"
+            width="600"
+            height="600"
+            style="position: absolute; display: block"
+          ></canvas>
+          <div
+            id="dom_overlay_container"
+            style="
+              pointer-events: none;
+              overflow: hidden;
+              width: 600px;
+              height: 600px;
+              position: absolute;
+              left: 0px;
+              top: 0px;
+              display: block;
+            "
+          ></div>
         </div>
       </div>
       <div class="go-down">
         <i class="fas fa-angle-double-down fa-2x"></i>
       </div>
-      <div class="c1">
-        <div class="part" id="i1">
-          <h2>Tailored Digital Excellence</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui,
-            repellendus?
-          </p>
-        </div>
-        <div class="part" id="i2">
-          <h2>Our Journey</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui,
-            repellendus?
-          </p>
-        </div>
-      </div>
-      <div class="c2">
-        <div class="part" id="i5">
-          <h2>Our Commitment</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui,
-            repellendus?
-          </p>
-        </div>
-        <div class="part" id="i3">
-          <h2>Creative Visionaries</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui,
-            repellendus?
-          </p>
-        </div>
-      </div>
-      <div class="c3">
-        <div class="part" id="i4">
-          <h2 style="text-align: center;">Affordability <br> Without Compromise</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui,
-            repellendus?
-          </p>
-        </div>
-        <div class="" style="width: 430px;"></div>
-      </div>
+      <div id="a"></div>
     </div>
     <script src="main.js"></script>
-    <script src="circle.js"></script>
   </body>
 </html>

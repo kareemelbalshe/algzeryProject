@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Alexandria,Verdana, Geneva, Tahoma, sans-serif;
   color: #3cc8cd;
   transition: 0.5s ease-out;
   /* border: solid; */
@@ -162,8 +163,8 @@ header a:hover {
 
   /* border: solid; */
 }
-.link{
-  margin: 20px;
+.link {
+  margin: 30px 130px;
 }
 .container .part {
   display: flex;
@@ -171,6 +172,8 @@ header a:hover {
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  z-index: 999;
+  margin: 30px 20px;
 }
 .container h2 {
   cursor: pointer;
@@ -216,7 +219,8 @@ header a:hover {
 }
 .container p {
   opacity: 0;
-  width: 430px;
+  width: 410px;
+  min-height: 80px;
 }
 .container .go-down {
   display: none;
@@ -270,7 +274,7 @@ header a:hover {
   border: 1px solid #ccc;
   z-index: 2;
 }
-section:hover .img{
+section:hover .img {
   opacity: 1;
 }
 
@@ -284,14 +288,14 @@ section:hover .img{
   opacity: 0;
   transition: 1s ease;
 }
-.content .info:hover p{
+.content .info:hover p {
   opacity: 1;
 }
 .content article {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ccc;
+  background-color: #0f0f0f;
   width: 80%;
   margin: auto;
   margin-bottom: 50px;
@@ -447,8 +451,6 @@ h3 {
   justify-content: center;
   margin-bottom: 50px;
   position: relative;
-  background-color: #fff;
-  border-radius: 20px;
 }
 .Portfolio .section .card:hover .info-card {
   opacity: 1;
@@ -640,7 +642,6 @@ h3 {
       display: none;
     } */
   .container {
-
     gap: 50px;
     position: initial;
     top: 0;
@@ -648,13 +649,14 @@ h3 {
     /* margin-bottom: 50px; */
   }
   .container .logo {
-    margin-top: -150px;
+    margin-top: -300px;
     position: initial;
     transform: translate(0, 0);
     margin-bottom: -150px;
   }
   .container p {
     width: 300px;
+    min-height: 80px;
   }
   .container .c1 {
     flex-direction: column;
@@ -673,6 +675,9 @@ h3 {
     gap: 30px;
     justify-content: center;
     align-items: center;
+  }
+  .container .part {
+    margin: 10px;
   }
   .container h2 {
     font-size: 20px;
@@ -705,7 +710,10 @@ h3 {
   }
 }
 @media screen and (max-width: 600px) {
-  .container img{
+  .container .logo{
+    display: none;
+  }
+  .container img {
     width: 400px;
   }
   .dots {
@@ -734,8 +742,11 @@ h3 {
   .content section .info {
     width: 90%;
   }
-  .content section .info span {
+  .content section .info .image {
     left: 50%;
     transform: translateX(-50%);
+  }
+  .Portfolio .section .card{
+    width: 350px;
   }
 }
