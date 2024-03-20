@@ -45,13 +45,13 @@
       // console.log(result);
       article.innerHTML += `
       <div class="c1">
-          <div class="part" id="i1">
-            <h2>${result[0][1].title}</h2>
+          <div class="part" id="i5">
+            <h2 style="text-align: center;width:300px">${result[0][1].title}</h2>
             <p>
               ${result[0][1].dis}
             </p>
           </div>
-          <div class="part" id="i2">
+          <div class="part" id="i1">
             <h2>${result[1][1].title}</h2>
             <p>
               ${result[1][1].dis}
@@ -59,13 +59,13 @@
           </div>
         </div>
         <div class="c2">
-          <div class="part" id="i5">
+          <div class="part" id="i4">
             <h2>${result[2][1].title}</h2>
             <p>
               ${result[2][1].dis}
             </p>
           </div>
-          <div class="part" id="i3">
+          <div class="part" id="i2">
             <h2>${result[3][1].title}</h2>
             <p>
               ${result[3][1].dis}
@@ -73,7 +73,7 @@
           </div>
         </div>
         <div class="c3">
-          <div class="part" id="i4">
+          <div class="part" id="i3">
             <h2 style="text-align: center;width:300px">${result[4][1].title}</h2>
             <p>
               ${result[4][1].dis}
@@ -89,26 +89,24 @@
       const i5 = document.getElementById("i5");
 
       setInterval(() => {
-        i1.style.opacity = "1";
-      }, 1500);
-      setInterval(() => {
-        i2.style.opacity = "1";
-      }, 2000);
-      setInterval(() => {
-        i3.style.opacity = "1";
-      }, 2500);
-      setInterval(() => {
-        i4.style.opacity = "1";
-      }, 3000);
-      setInterval(() => {
-        i5.style.opacity = "1";
-      }, 3500);
-      setInterval(() => {
-        i6.style.opacity = "1";
-      }, 4000);
+        i1.style.opacity = "1"
+    }, 3800)
+    setInterval(() => {
+        i2.style.opacity = "1"
+    }, 4300)
+    setInterval(() => {
+        i3.style.opacity = "1"
+    }, 6000)
+    setInterval(() => {
+        i4.style.opacity = "1"
+    }, 6400)
+    setInterval(() => {
+        i5.style.opacity = "1"
+    }, 7100)
+    
     </script>
 
-    <script>
+    <!-- <script>
       var canvas,
         stage,
         exportRoot,
@@ -168,9 +166,9 @@
         AdobeAn.compositionLoaded(lib.properties.id);
         fnStartAnimation();
       }
-    </script>
+    </script> -->
   </head>
-  <body onload="init();">
+  <body>
     <!-- <div class="dots dots-up"><img src="img/dots.png" alt="" /></div>
     <div class="dots dots-down"><img src="img/dots.png" alt="" /></div> -->
     <header>
@@ -188,10 +186,9 @@
       <button id="open-menu-btn"><i class="fas fa-bars"></i></button>
       <button id="close-menu-btn"><i class="fas fa-times"></i></button>
     </header>
-    <div class="container">
-      <div class="logo">
+    <div class="container m">
+      <!-- <div class="logo">
         <div id="animation_container" style="width: 600px; height: 600px">
-          <!-- <img src="web_HTML5 Canvas_Scene 2.svg" alt=""> -->
           <canvas
             id="canvas"
             width="600"
@@ -212,6 +209,12 @@
             "
           ></div>
         </div>
+      </div> -->
+      <div class="logo">
+        <video width="720" height="720" autoplay>
+          <source src="img/web blue.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
       </div>
       <div class="go-down">
         <i class="fas fa-angle-double-down fa-2x"></i>

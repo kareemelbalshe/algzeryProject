@@ -12,7 +12,7 @@
     />
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 
-    <script src="web_HTML5 Canvas_Scene 2.js"></script>
+    <!-- <script src="web_HTML5 Canvas_Scene 2.js"></script>
 
     <script>
       var canvas,
@@ -74,9 +74,9 @@
         AdobeAn.compositionLoaded(lib.properties.id);
         fnStartAnimation();
       }
-    </script>
+    </script> -->
   </head>
-  <body onload="init();">
+  <body>
     <!-- <div class="dots dots-up"><img src="img/dots.png" alt="" /></div>
     <div class="dots dots-down"><img src="img/dots.png" alt="" /></div> -->
     <header>
@@ -94,10 +94,14 @@
       <button id="open-menu-btn"><i class="fas fa-bars"></i></button>
       <button id="close-menu-btn"><i class="fas fa-times"></i></button>
     </header>
-    <div class="container">
+    <div class="container mt">
       <div class="logo">
-        <div id="animation_container" style="width: 400px; height: 400px">
-          <!-- <img src="web_HTML5 Canvas_Scene 2.svg" alt=""> -->
+        <video src="img/web blue.mp4" width="720" height="720" autoplay preload>
+          <source src="img/web blue.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <!-- <div class="logo"><div id="animation_container" style="width: 400px; height: 400px">
           <canvas
             id="canvas"
             width="400"
@@ -121,23 +125,22 @@
               top: 0px;
               display: block;
             "
-          ></div>
-        </div>
-      </div>
+          ></div></div> -->
+
       <div class="go-down">
         <i class="fas fa-angle-double-down fa-2x"></i>
       </div>
       <div class="c1">
-        <a class="link" id="i1" href="howItWork.html">How it Works</a>
-        <a class="link" id="i2" href="portfolio.html">Portfolio</a>
+        <a class="link" id="i6" href="howItWork.html">How it Works</a>
+        <a class="link" id="i1" href="portfolio.html">Portfolio</a>
       </div>
       <div class="c2">
-        <a class="link" id="i6" href="article.html">Articles</a>
-        <a class="link" id="i3" href="FAQ.html">FAQ</a>
+        <a class="link" id="i5" href="article.html">Articles</a>
+        <a class="link" id="i2" href="FAQ.html">FAQ</a>
       </div>
       <div class="c3">
-        <a class="link" id="i5" href="contact.html">Contact Us</a>
-        <a class="link" id="i4" href="about.html">About Us</a>
+        <a class="link" id="i4" href="contact.html">Contact Us</a>
+        <a class="link" id="i3" href="about.html">About Us</a>
       </div>
     </div>
     <script src="main.js"></script>

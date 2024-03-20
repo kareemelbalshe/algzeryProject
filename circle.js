@@ -9,22 +9,22 @@ const i6 = document.getElementById("i6")
 window.addEventListener("load", () => {
     setInterval(() => {
         i1.style.opacity = "1"
-    }, 1500)
+    }, 3800)
     setInterval(() => {
         i2.style.opacity = "1"
-    }, 2000)
+    }, 4300)
     setInterval(() => {
         i3.style.opacity = "1"
-    }, 2500)
+    }, 5000)
     setInterval(() => {
         i4.style.opacity = "1"
-    }, 3000)
+    }, 6000)
     setInterval(() => {
         i5.style.opacity = "1"
-    }, 3500)
+    }, 6400)
     setInterval(() => {
         i6.style.opacity = "1"
-    }, 4000)
+    }, 7100)
 })
 
 

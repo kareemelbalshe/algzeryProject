@@ -109,7 +109,7 @@ header a:hover {
 
 .container {
   position: relative;
-  min-height: 100vh;
+  min-height: 50vh;
   width: 80%;
   margin: auto;
   margin-top: 250px;
@@ -141,7 +141,8 @@ header a:hover {
   display: flex;
   justify-content: center;
   align-items: start;
-  gap: 450px;
+  gap: 280px;
+  margin-right: 150px;
   /* margin-bottom: 120px; */
   z-index: 999;
   /* border: solid; */
@@ -150,7 +151,8 @@ header a:hover {
   display: flex;
   justify-content: center;
   align-items: start;
-  gap: 650px;
+  gap: 450px;
+  margin-right: 50px;
   /* margin-bottom: 120px; */
   z-index: 999;
   /* border: solid; */
@@ -159,8 +161,69 @@ header a:hover {
   display: flex;
   justify-content: center;
   align-items: start;
-  gap: 450px;
+  gap: 350px;
   z-index: 999;
+  margin-left: 20px;
+
+  /* border: solid; */
+}
+.m .c1 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 450px;
+  margin-right: 100px;
+  /* margin-bottom: 120px; */
+  z-index: 999;
+  /* border: solid; */
+}
+.m .c2 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 600px;
+  margin-right: 50px;
+  /* margin-bottom: 120px; */
+  z-index: 999;
+  /* border: solid; */
+}
+.m .c3 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 400px;
+  z-index: 999;
+  margin-left: 20px;
+
+  /* border: solid; */
+}
+.mm .c1 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 480px;
+  margin-right: 100px;
+  /* margin-bottom: 120px; */
+  z-index: 999;
+  /* border: solid; */
+}
+.mm .c2 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 650px;
+  margin-right: 50px;
+  /* margin-bottom: 120px; */
+  z-index: 999;
+  /* border: solid; */
+}
+.mm .c3 {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 500px;
+  z-index: 999;
+  margin-left: 40px;
 
   /* border: solid; */
 }
@@ -220,7 +283,7 @@ header a:hover {
 }
 .container p {
   opacity: 0;
-  width: 410px;
+  width: 300px;
   min-height: 80px;
 }
 .container .go-down {
@@ -659,6 +722,7 @@ h3 {
     min-height: 80px;
   }
   .container .c1 {
+    margin: auto;
     flex-direction: column;
     gap: 30px;
     justify-content: center;
@@ -666,12 +730,14 @@ h3 {
   }
   .container .c2 {
     flex-direction: column;
+    margin: auto;
     gap: 30px;
     justify-content: center;
     align-items: center;
   }
   .container .c3 {
     flex-direction: column;
+    margin: auto;
     gap: 30px;
     justify-content: center;
     align-items: center;
@@ -681,6 +747,9 @@ h3 {
   }
   .container h2 {
     font-size: 20px;
+  }
+  .mt .go-down{
+    top: 1000px;
   }
   .container .go-down {
     display: block;
