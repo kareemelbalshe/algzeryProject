@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Alexandria,Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Alexandria, Verdana, Geneva, Tahoma, sans-serif;
   color: #3cc8cd;
   transition: 0.5s ease-out;
   /* border: solid; */
@@ -521,6 +521,9 @@ h3 {
 .Portfolio .section .card:hover .info-card {
   opacity: 1;
 }
+.Portfolio .section .card:hover {
+  transform: scale(1.1);
+}
 .info-card {
   position: absolute;
   margin: auto;
@@ -750,7 +753,7 @@ h3 {
   .container h2 {
     font-size: 20px;
   }
-  .mt .go-down{
+  .mt .go-down {
     top: 1000px;
   }
   .container .go-down {
@@ -781,13 +784,13 @@ h3 {
   }
 }
 @media screen and (max-width: 600px) {
-  .container .logo{
+  .container .logo {
     display: none;
   }
-  .container{
+  .container {
     margin-top: 50px;
   }
-  .link{
+  .link {
     margin: 10px;
   }
   .dots {
@@ -820,7 +823,7 @@ h3 {
     left: 50%;
     transform: translateX(-50%);
   }
-  .Portfolio .section .card{
+  .Portfolio .section .card {
     width: 350px;
   }
 }

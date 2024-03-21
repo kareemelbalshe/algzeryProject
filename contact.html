@@ -12,6 +12,38 @@
     />
   </head>
   <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+    import {
+      doc,
+      getDoc,
+      getFirestore,
+    } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    import { firebaseConfig } from "./firebaseConfig.js";
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const contactRef = doc(db, "contact", "contact");
+    // Function to get document data
+
+    const docSnap = await getDoc(contactRef);
+    const data = docSnap.data();
+    const article = document.getElementById("c");
+    var result = Object.keys(data).map((key) => [key, data[key]]);
+    result.map((element) => {
+      // console.log(result);
+      article.innerHTML += `
+    <h3>${element[1].title}</h3>
+        <p>${element[1].info}</p>
+        
+  `;
+    });
+  </script>
   <body>
     <header>
       <div class="logo">
@@ -29,24 +61,14 @@
       <button id="close-menu-btn"><i class="fas fa-times"></i></button>
     </header>
     <div class="contect">
-      <div class="left">
+      <div id="c" class="left">
         <h2>Contact Information</h2>
-        <h3>email</h3>
-        <p>example@gmail.com</p>
-        <h3>phone</h3>
-        <p>+012345678</p>
-        <h3>address</h3>
-        <p>
-          example Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-          necessitatibus atque cum fuga eligendi aspernatur ipsa, sint
-          recusandae ab error impedit accusamus omnis repellat nobis iste eum
-          quisquam eos nostrum.
-        </p>
+
         <!-- You can add additional text here -->
       </div>
       <div class="right">
         <h2>Contact Form</h2>
-        <form action="process_form.php" method="post">
+        <form id="contact-form">
           <label for="first_name">First Name:</label>
           <input type="text" id="first_name" name="first_name" required />
           <label for="last_name">Last Name:</label>
@@ -73,5 +95,75 @@
       </div>
     </div>
     <script src="main.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+      import {
+        collection,
+        doc,
+        addDoc,
+        getDoc,
+        getFirestore,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      import { firebaseConfig } from "./firebaseConfig.js";
+      const app2 = initializeApp(firebaseConfig);
+      const db2 = getFirestore(app2);
+      // Refernece contactInfo collections
+      let contactInfo = doc(db2, "contactForm", "contactForm");
+      document
+        .querySelector("#contact-form")
+        .addEventListener("submit", submitForm);
+
+      function submitForm(e) {
+        e.preventDefault();
+
+        //   Get input Values
+        let first_name = document.getElementById("first_name").value;
+        let last_name = document.getElementById("last_name").value;
+        let company_name = document.getElementById("company_name").value;
+        let solution_type = document.getElementById("solution_type").value;
+        let description = document.getElementById("description").value;
+        console.log(
+          first_name,
+          last_name,
+          company_name,
+          solution_type,
+          description
+        );
+
+        saveContactInfo(
+          first_name,
+          last_name,
+          company_name,
+          solution_type,
+          description
+        );
+
+        document.querySelector("#contact-form").reset();
+      }
+
+      // Save infos to Firebase
+      async function saveContactInfo(
+        first_name,
+        last_name,
+        company_name,
+        solution_type,
+        description
+      ) {
+        const someCol = collection(db2, "contactForm");
+        const newDoc = await addDoc(someCol, {
+          first_name: first_name,
+          last_name: last_name,
+          company_name: company_name,
+          solution_type: solution_type,
+          description: description,
+        });
+      }
+    </script>
   </body>
 </html>
