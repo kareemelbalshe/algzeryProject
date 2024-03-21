@@ -15,7 +15,7 @@ html {
 body {
   background-color: #000;
   animation: foldPaper 2s ease;
-  transform-origin: right;
+  /* transform-origin: right; */
   overflow-x: hidden;
 }
 ::-webkit-scrollbar {
@@ -23,13 +23,13 @@ body {
 }
 @keyframes foldPaper {
   0% {
-    transform: perspective(500px) rotateY(-180deg);
+    transform: translateX(-100%);
   }
-  /* 50% {
-      transform: perspective(500px) rotateY(-180deg);
-    } */
+  50% {
+      transform: translateX(50%);
+    }
   100% {
-    transform: perspective(500px) rotateY(-360deg);
+    transform: translateX(0);
   }
 }
 a {
