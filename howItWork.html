@@ -8,10 +8,10 @@
     <link rel="icon" href="web.svg" />
     <style>
       @media screen and (max-width: 600px) {
-      .container .go-down{
-        margin-top: 140px;
+        .container .go-down {
+          margin-top: 140px;
+        }
       }
-    }
     </style>
     <link
       rel="stylesheet"
@@ -95,23 +95,23 @@
       const i6 = document.getElementById("i6");
 
       setInterval(() => {
-        i1.style.opacity = "1"
-    }, 3500)
-    setInterval(() => {
-        i2.style.opacity = "1"
-    }, 4300)
-    setInterval(() => {
-        i3.style.opacity = "1"
-    }, 5100)
-    setInterval(() => {
-        i4.style.opacity = "1"
-    }, 6000)
-    setInterval(() => {
-        i5.style.opacity = "1"
-    }, 6400)
-    setInterval(() => {
-        i6.style.opacity = "1"
-    }, 7100)
+        i1.style.opacity = "1";
+      }, 3500);
+      setInterval(() => {
+        i2.style.opacity = "1";
+      }, 4300);
+      setInterval(() => {
+        i3.style.opacity = "1";
+      }, 5100);
+      setInterval(() => {
+        i4.style.opacity = "1";
+      }, 6000);
+      setInterval(() => {
+        i5.style.opacity = "1";
+      }, 6400);
+      setInterval(() => {
+        i6.style.opacity = "1";
+      }, 7100);
     </script>
 
     <script>
@@ -176,7 +176,7 @@
       }
     </script>
   </head>
-  <body onload="init();">
+  <body>
     <!-- <div class="dots dots-up"><img src="img/dots.png" alt="" /></div>
     <div class="dots dots-down"><img src="img/dots.png" alt="" /></div> -->
     <header>
@@ -196,9 +196,9 @@
     </header>
     <div class="container mm">
       <div class="logo">
-        <video width="720" height="720" autoplay preload>
-          <source src="img/web blue.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        <video width="720" height="720" muted autoplay="autoplay">
+          <source src="img/web blue.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       </div>
       <!-- <div class="logo">
@@ -230,7 +230,6 @@
       <div style="margin-top: 30px" id="h"></div>
     </div>
     <script src="main.js"></script>
-
     <!-- <script src="circle.js"></script> -->
     <!-- <script type="module" src="firepase.js"></script> -->
   </body>
