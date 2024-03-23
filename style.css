@@ -18,7 +18,11 @@ body {
   transform-origin: top;
   /* transform-origin: right; */
   overflow-x: hidden;
-  height: max-content;
+  min-height: 100vh;
+}
+#myCanvas {
+  background-color: transparent;
+  position: absolute;
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -164,6 +168,7 @@ header ul > li > a:hover::before {
 .container .logo video {
   position: relative;
   animation: up-and-down 5s linear infinite;
+  border-radius: 50px;
 }
 @keyframes up-and-down {
   0%,
@@ -352,7 +357,7 @@ header ul > li > a:hover::before {
   width: 100%;
   margin-bottom: 100px;
   height: 500px;
-  transition: 1s ease;
+  transition: 2s ease;
 }
 .content section .img {
   width: 38%;
@@ -393,8 +398,16 @@ header ul > li > a:hover::before {
 }
 section:hover .img {
   opacity: 1;
+  animation: d 4s linear infinite;
 }
-
+@keyframes d{
+  100%,0%{
+    transform: rotate(10deg);
+  }
+  50%{
+    transform: rotate(-10deg);
+  }
+}
 .content section .info h1 {
   color: #000;
   text-align: left;
