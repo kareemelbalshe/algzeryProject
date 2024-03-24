@@ -14,12 +14,9 @@ html {
 }
 body {
   background-color: #000;
-  /* animation: foldPaper 3s ease; */
   transform-origin: top;
-  /* transform-origin: right; */
   position: relative;
   overflow-x: hidden;
-  min-height: 140vh;
 }
 .white{
   position: absolute;
@@ -70,8 +67,6 @@ body .before{
 #myCanvas {
   background-color: transparent;
   position: absolute;
-  /* height: 130vh; */
-  /* background-color: #0f0f0f; */
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -106,11 +101,8 @@ header {
   justify-content: space-between;
   width: 100%;
   height: 100px;
-  /* margin: auto; */
   border-bottom: solid;
   top: 0;
-  /* left: 50%;
-  transform: translateX(-50%); */
   position: fixed;
   background-color: #000;
   z-index: 999999999;
@@ -229,20 +221,13 @@ header ul > li > a:hover::before {
     top: -30px;
   }
 }
-/* .container .logo img {
-  width: 450px;
-  display: block;
-  border-radius: 50%;
-} */
 .container .c1 {
   display: flex;
   justify-content: center;
   align-items: start;
   gap: 280px;
   margin-right: 150px;
-  /* margin-bottom: 120px; */
   z-index: 999;
-  /* border: solid; */
 }
 .container .c2 {
   display: flex;
@@ -250,9 +235,7 @@ header ul > li > a:hover::before {
   align-items: start;
   gap: 450px;
   margin-right: 50px;
-  /* margin-bottom: 120px; */
   z-index: 999;
-  /* border: solid; */
 }
 .container .c3 {
   display: flex;
@@ -261,8 +244,6 @@ header ul > li > a:hover::before {
   gap: 350px;
   z-index: 999;
   margin-left: 20px;
-
-  /* border: solid; */
 }
 .m .c1 {
   display: flex;
@@ -270,9 +251,7 @@ header ul > li > a:hover::before {
   align-items: start;
   gap: 400px;
   margin-right: 100px;
-  /* margin-bottom: 120px; */
   z-index: 999;
-  /* border: solid; */
 }
 .m .c2 {
   display: flex;
@@ -280,10 +259,8 @@ header ul > li > a:hover::before {
   align-items: start;
   gap: 600px;
   margin-right: 50px;
-  /* margin-bottom: 120px; */
   z-index: 999;
   margin-top: 20px;
-  /* border: solid; */
 }
 .m .c3 {
   display: flex;
@@ -293,8 +270,6 @@ header ul > li > a:hover::before {
   z-index: 999;
   margin-left: 20px;
   margin-top: 50px;
-
-  /* border: solid; */
 }
 .mm .c1 {
   display: flex;
@@ -302,9 +277,7 @@ header ul > li > a:hover::before {
   align-items: start;
   gap: 480px;
   margin-right: 100px;
-  /* margin-bottom: 120px; */
   z-index: 999;
-  /* border: solid; */
 }
 .mm .c2 {
   display: flex;
@@ -312,9 +285,7 @@ header ul > li > a:hover::before {
   align-items: start;
   gap: 650px;
   margin-right: 50px;
-  /* margin-bottom: 120px; */
   z-index: 999;
-  /* border: solid; */
 }
 .mm .c3 {
   display: flex;
@@ -323,8 +294,6 @@ header ul > li > a:hover::before {
   gap: 500px;
   z-index: 999;
   margin-left: 40px;
-
-  /* border: solid; */
 }
 .link {
   margin: 30px 130px;
@@ -348,8 +317,7 @@ header ul > li > a:hover::before {
 .container h2:hover {
   transform: rotate(3deg) scale(1.1);
 }
-.dots {
-  /* background-image: url(../img/dots.png); */
+/* .dots {
   height: 186px;
   width: 204px;
   background-repeat: no-repeat;
@@ -366,8 +334,8 @@ header ul > li > a:hover::before {
   left: 50px;
   animation: go 3s ease forwards;
   animation-delay: 0.5s;
-}
-@keyframes go {
+} */
+/* @keyframes go {
   0% {
     transform: translateY(-2000px);
     opacity: 0;
@@ -386,7 +354,7 @@ header ul > li > a:hover::before {
     transform: translateY(0);
     opacity: 1;
   }
-}
+} */
 .container p {
   opacity: 0;
   width: 300px;
@@ -511,7 +479,6 @@ section:hover .img {
   position: absolute;
   top: 0;
   left: 0;
-  /* transform: translate(-50%,0); */
   background-color: #3cc8cd;
   width: 0;
   height: 5px;
@@ -527,7 +494,6 @@ section:hover .img {
   position: absolute;
   bottom: 0;
   right: 0;
-  /* transform: translate(-50%,0); */
   background-color: #3cc8cd;
   width: 0;
   height: 5px;
@@ -538,17 +504,6 @@ section:hover .img {
 .content article:hover::after {
   width: 100%;
 }
-/* @keyframes flashing {
-  0%,
-  40% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    width: 200%;
-    height: 200%;
-  }
-} */
 .faq {
   display: flex;
   flex-direction: column;
@@ -556,7 +511,6 @@ section:hover .img {
   margin: auto;
   margin-top: 100px;
   text-align: center;
-  /* background-color: rgba(12, 11, 11, 0.786); */
   padding: 4em 5em;
   border-radius: 10px;
   width: 95%;
@@ -566,7 +520,6 @@ section:hover .img {
 .title {
   font-size: 1.5rem;
   font-weight: 700;
-  /* color: #fff; */
   margin-bottom: 20px;
 }
 
@@ -574,7 +527,6 @@ section:hover .img {
   width: 100%;
   border-left: 7px solid #3cc8cd;
   padding: 15px;
-  /* background-color: #3cc8cd; */
 }
 .accordion-item:hover {
   border-left: 7px solid #42c2c6;
@@ -582,12 +534,10 @@ section:hover .img {
 }
 .accordion-item-header {
   gap: 1em;
-  /* min-height: 3.5rem; */
   cursor: pointer;
 }
 
 .accordion-item-title {
-  /* color: rgba(255, 255, 255, 0.758); */
   font-size: 1.125rem;
   font-weight: 400;
   text-align: left;
@@ -603,7 +553,6 @@ section:hover .img {
 .accordion-item-body-content {
   width: 100%;
   padding-top: 1em;
-  /* color: #fff; */
   text-align: left;
 }
 
@@ -625,7 +574,6 @@ section:hover .img {
 .divider {
   width: 100%;
   height: 1px;
-  /* margin: 10px 0 10px 0; */
   background-color: #3cc8cd;
 }
 
@@ -747,7 +695,6 @@ h3 {
   align-items: center;
 }
 .contect .right form {
-  /* flex: 4; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -794,7 +741,6 @@ h3 {
   padding: 20px;
   text-align: center;
   font-size: 18px;
-  /* font-weight: bold; */
   border: none;
   border-radius: 10px;
   color: #fff;
@@ -860,6 +806,9 @@ h3 {
 }
 
 @media screen and (max-width: 1024px) {
+  .before,.after{
+    display: none;
+  }
   #open-menu-btn,
   #close-menu-btn {
     font-size: 40px;
@@ -930,7 +879,6 @@ h3 {
     gap: 40px;
     position: initial;
     height: max-content;
-    /* margin-bottom: 50px; */
   }
   .container .logo {
     margin-top: -50px;
