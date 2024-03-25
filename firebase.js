@@ -6,7 +6,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-
+// change collection id as your account at firebase
 const portfolioRef = doc(db, "portfolio", "7V7gYNlWdHNN2r7jrBO5");
 // Function to get document data
 async function getPortfolioData() {

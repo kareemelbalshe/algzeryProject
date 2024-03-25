@@ -10,9 +10,11 @@
   /* border: solid; */
   text-align: start;
 }
+
 html {
   overflow-x: hidden;
 }
+
 body {
   background-color: #000;
   min-height: 100vh;
@@ -20,6 +22,7 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+
 .white {
   position: absolute;
   width: 100%;
@@ -111,23 +114,23 @@ a {
 }
 
 p {
-  font-size: 18px;
+  font-size: 17px;
   align-items: center;
   text-align: center;
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 32px;
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 27px;
 }
 
 h3 {
   align-items: center;
   text-align: center;
-  font-size: 28px;
+  font-size: 26px;
 }
 /* end global */
 
