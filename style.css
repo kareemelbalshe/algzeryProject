@@ -63,9 +63,30 @@ body .after {
 }
 
 body .before {
-  bottom: 50px;
+  top: 150px;
   right: 50px;
 }
+
+/* body .down{
+  margin-top: -290px;
+} */
+
+.anima2{
+  position: absolute;
+  left: -30%;
+  top: 50%;
+  width: 50%;
+  transform: translateY(-50%)  rotate(180deg);
+}
+
+.anima{
+  position: absolute;
+  right: -30%;
+  top: 50%;
+  width: 50%;
+  transform: translateY(-50%);
+}
+
 
 @keyframes infiniteSpin {
   0% {
@@ -434,7 +455,7 @@ header ul > li > a:hover::before {
 
 .link:hover {
   transform: rotate(3deg) scale(1.1);
-  text-shadow: 0px 0px 30px rgba(8, 212, 231, 0.7);
+  text-shadow: 0px 0px 4px rgba(8, 212, 231, 1);
 }
 
 .container .part {
@@ -959,7 +980,8 @@ section:hover .img {
 /* start tablet */
 @media screen and (max-width: 1024px) {
   .before,
-  .after {
+  .after
+  {
     display: none;
   }
   #open-menu-btn,
@@ -1116,6 +1138,10 @@ section:hover .img {
   }
   h3 {
     font-size: initial;
+  }
+  .anima,
+  .anima2{
+    display: none;
   }
   .container .logo {
     display: none;
