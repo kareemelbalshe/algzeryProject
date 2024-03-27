@@ -40,6 +40,9 @@ body {
   50% {
     transform: translateX(0);
   }
+  60% {
+    transform: translateX(0);
+  }
   100% {
     transform: translateX(100%);
   }
@@ -145,7 +148,7 @@ h1 {
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 27px;
 }
 
 h3 {
