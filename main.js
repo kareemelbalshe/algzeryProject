@@ -42,3 +42,29 @@ const closeNav = () => {
 closeBtn.addEventListener('click', closeNav);
 
 
+document.onkeydown = e => {
+    if (e.key == "F12") {
+        alert("Don't try to inspect element")
+        return false
+    }
+    if (e.ctrlKey && e.key == "u") {
+        alert("Don't try to view page source")
+        return false
+    }
+    // if(e.ctrlKey&&e.key=="c"){
+    //     alert("Don't try to copy any thing")
+    //     return false
+    // }
+    // if(e.ctrlKey&&e.key=="v"){
+    //     alert("Don't try to paste any thing to page")
+    //     return false
+    // }
+    if (e.ctrlKey && e.key == "s") {
+        alert("Don't try to save page")
+        return false
+    }
+    if (e.ctrlKey && e.shiftKey && e.key === "i") {
+        alert("Don't try to inspect element")
+        return false
+    }
+}
