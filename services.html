@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Services</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="img/WhatsApp Image 2024-03-25 at 3.41.10 AM.icon" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css "
-    />
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-      import {
-        doc,
-        getDoc,
-        getFirestore,
-      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-      import { firebaseConfig } from "./firebaseConfig.js";
-      const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
 
-      // change collection id as your account at firebase
-      const serviceRef = doc(db, "service", "zV5Tm4xRynuwoQhkyekR");
-      const docSnap = await getDoc(serviceRef);
-      const data = docSnap.data();
-      const article = document.getElementById("s");
-      var result = Object.keys(data).map((key) => [key, data[key]]);
-      result.map((element) => {
-        if (element[1].type === "web") {
-          if (element[0] % 2 === 0) {
-            article.innerHTML += `
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="img/WhatsApp Image 2024-03-25 at 3.41.10 AM.icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css " />
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+    import {
+      doc,
+      getDoc,
+      getFirestore,
+    } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+    import { firebaseConfig } from "./firebaseConfig.js";
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // change collection id as your account at firebase
+    const serviceRef = doc(db, "service", "zV5Tm4xRynuwoQhkyekR");
+    const docSnap = await getDoc(serviceRef);
+    const data = docSnap.data();
+    const article = document.getElementById("s");
+    var result = Object.keys(data).map((key) => [key, data[key]]);
+    result.map((element) => {
+      if (element[1].type === "web") {
+        if (element[0] % 2 === 0) {
+          article.innerHTML += `
         <section>
         <div class="info">
           <span class="image"><img src="img/code.png" alt="" /></span>
@@ -44,8 +42,8 @@
         <img class="img" src="${element[1].img}" alt="" />
       </section>
       `;
-          } else {
-            article.innerHTML += `
+        } else {
+          article.innerHTML += `
         <section>
         <img class="img" src="${element[1].img}" alt="" />
         <div class="info">
@@ -58,11 +56,11 @@
         </div>
       </section>
       `;
-          }
         }
-        if (element[1].type === "mobile") {
-          if (element[0] % 2 === 0) {
-            article.innerHTML += `
+      }
+      if (element[1].type === "mobile") {
+        if (element[0] % 2 === 0) {
+          article.innerHTML += `
           <section>
           <div class="info">
           <span class="image" ><img src="img/developer.png" alt="" /></span>
@@ -75,8 +73,8 @@
           <img class="img" src="${element[1].img}" alt="" />
         </section>
       `;
-          } else {
-            article.innerHTML += `
+        } else {
+          article.innerHTML += `
           <section>
           <img class="img" src="${element[1].img}" alt="" />
           <div class="info">
@@ -89,11 +87,11 @@
           </div>
         </section>
       `;
-          }
         }
-        if (element[1].type === "marketing") {
-          if (element[0] % 2 === 0) {
-            article.innerHTML += `
+      }
+      if (element[1].type === "marketing") {
+        if (element[0] % 2 === 0) {
+          article.innerHTML += `
           <section>
         <div class="info">
           <span class="image" ><img src="img/marketing.png" alt="" /></span>
@@ -106,8 +104,8 @@
         <img class="img" src="${element[1].img}" alt="" />
       </section>
       `;
-          } else {
-            article.innerHTML += `
+        } else {
+          article.innerHTML += `
           <section>
           <img class="img" src="${element[1].img}" alt="" />
         <div class="info">
@@ -120,11 +118,11 @@
         </div>
       </section>
       `;
-          }
         }
-        if (element[1].type === "seo") {
-          if (element[0] % 2 === 0) {
-            article.innerHTML += `
+      }
+      if (element[1].type === "seo") {
+        if (element[0] % 2 === 0) {
+          article.innerHTML += `
           <section>
           <div class="info">
           <span class="image" ><img src="img/seo.png" alt="" /></span>
@@ -137,8 +135,8 @@
           <img class="img" src="${element[1].img}" alt="" />
       </section>
       `;
-          } else {
-            article.innerHTML += `
+        } else {
+          article.innerHTML += `
           <section>
         <img class="img" src="${element[1].img}" alt="" />
         <div class="info">
@@ -151,11 +149,11 @@
         </div>
       </section>
       `;
-          }
         }
-        if (element[1].type === "social") {
-          if (element[0] % 2 === 0) {
-            article.innerHTML += `
+      }
+      if (element[1].type === "social") {
+        if (element[0] % 2 === 0) {
+          article.innerHTML += `
           <section>
         <div class="info">
           <span class="image"><img src="img/content-management.png" alt="" /></span>
@@ -168,8 +166,8 @@
         <img class="img" src="${element[1].img}" alt="" />
       </section>
       `;
-          } else {
-            article.innerHTML += `
+        } else {
+          article.innerHTML += `
           <section>
           <img class="img" src="${element[1].img}" alt="" />
         <div class="info">
@@ -182,36 +180,38 @@
         </div>
       </section>
       `;
-          }
         }
-      });
-      document.addEventListener("scroll", function () {
-        const sections = document.querySelectorAll("section");
+      }
+    });
+    document.addEventListener("scroll", function () {
+      const sections = document.querySelectorAll("section");
 
-        window.addEventListener("scroll", function () {
-          sections.forEach(function (section, i) {
-            const sectionTop = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+      window.addEventListener("scroll", function () {
+        sections.forEach(function (section, i) {
+          const sectionTop = section.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
 
-            if (sectionTop < windowHeight * 0.75) {
-              section.style.opacity = 1;
-              section.style.transform = "translateX(0)";
+          if (sectionTop < windowHeight * 0.75) {
+            section.style.opacity = 1;
+            section.style.transform = "translateX(0)";
+          } else {
+            if (i % 2 === 0) {
+              section.style.opacity = 0;
+              section.style.transform = "translateX(-100%)";
             } else {
-              if (i % 2 === 0) {
-                section.style.opacity = 0;
-                section.style.transform = "translateX(-100%)";
-              } else {
-                section.style.opacity = 0;
-                section.style.transform = "translateX(100%)";
-              }
+              section.style.opacity = 0;
+              section.style.transform = "translateX(100%)";
             }
-          });
+          }
         });
       });
-    </script>
-  </head>
-  <body oncontextmenu="return false">
-    <div class="white"></div>
+    });
+  </script>
+</head>
+
+<body oncontextmenu="return false">
+  <div class="white"></div>
+  
     <header>
       <div class="logo">
         <a href="index.html">
@@ -229,5 +229,12 @@
     </header>
     <div class="content" id="s"></div>
     <script src="main.js"></script>
-  </body>
+    <div class="bg"></div>
+
+  <div class="star-field">
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+</body>
+
 </html>
