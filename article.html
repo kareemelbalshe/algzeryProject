@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/WhatsApp Image 2024-03-25 at 3.41.10 AM.icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css "
+    />
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+      import {
+        doc,
+        getDoc,
+        getFirestore,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+      import { firebaseConfig } from "./firebaseConfig.js";
+      
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      // change collection id as your account at firebase
+      const articleRef = doc(db, "article", "zaOskqpNOBc7GmReb67f");
+
+      const docSnap = await getDoc(articleRef);
+      const data = docSnap.data();
+      const article = document.getElementById("a");
+      var result = Object.keys(data).map((key) => [key, data[key]]);
+      console.log(result);
+      result.map((element) => {
+        console.log(element);
+        article.innerHTML += `
+    <article>
+            <img src="${element[1].img}" alt="" />
+    
+            <div class="info">
+              <h3>${element[1].title}</h3>
+              <p>
+                ${element[1].dis}
+              </p>
+            </div>
+          </article>
+    `;
+      });
+      document.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll("article");
+
+        window.addEventListener("scroll", function () {
+          sections.forEach(function (section) {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight * 0.75) {
+              section.style.opacity = 1;
+              section.style.transform = "translateX(0)";
+            } else {
+              section.style.opacity = 0;
+              section.style.transform = "translateX(-100%)";
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body oncontextmenu="return false">
+    <div class="white"></div>
+
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/IMG_1691.PNG" alt="" />
+        </a>
+      </div>
+      <ul class="nav_menu">
+        <li><a href="index.html" style="--i: 1">Home</a></li>
+        <li><a href="contact.html" style="--i: 2">Contact Us</a></li>
+        <li><a href="about.html" style="--i: 3">About Us</a></li>
+        <li><a href="services.html" style="--i: 4">Services</a></li>
+      </ul>
+      <button id="open-menu-btn"><i class="fas fa-bars"></i></button>
+      <button id="close-menu-btn"><i class="fas fa-times"></i></button>
+    </header>
+    <div class="content" id="a"></div>
+
+    <script src="main.js"></script>
+    <div class="bg"></div>
+
+  <div class="star-field">
+    <div class="layer"></div>
+    <div class="layer"></div>
+    <div class="layer"></div>
+  </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/WhatsApp Image 2024-03-25 at 3.41.10 AM.icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css "
+    />
+  </head>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+    import {
+      doc,
+      getDoc,
+      getFirestore,
+    } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+    import { firebaseConfig } from "./firebaseConfig.js";
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // change collection id as your account at firebase
+    const contactRef = doc(db, "contact", "contact");
+    // Function to get document data
+
+    const docSnap = await getDoc(contactRef);
+    const data = docSnap.data();
+    const article = document.getElementById("c");
+    var result = Object.keys(data).map((key) => [key, data[key]]);
+    result.map((element) => {
+      // console.log(result);
+      article.innerHTML += `
+    <h3>${element[1].title}</h3>
+        <p>${element[1].info}</p>
+        
+  `;
+    });
+  </script>
+  <body oncontextmenu="return false">
+        <div class="white"></div>
+
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/IMG_1691.PNG" alt="" />
+        </a>
+      </div>
+      <ul class="nav_menu">
+        <li><a href="index.html" style="--i: 1">Home</a></li>
+        <li><a href="contact.html" style="--i: 2">Contact Us</a></li>
+        <li><a href="about.html" style="--i: 3">About Us</a></li>
+        <li><a href="services.html" style="--i: 4">Services</a></li>
+      </ul>
+      <button id="open-menu-btn"><i class="fas fa-bars"></i></button>
+      <button id="close-menu-btn"><i class="fas fa-times"></i></button>
+    </header>
+    <div class="contect">
+      <div id="c" class="left">
+        <h2>Contact Information</h2>
+      </div>
+
+      <div class="right">
+        <h2>Contact Form</h2>
+        <form id="contact-form">
+          <label for="first_name">First Name:</label>
+          <input type="text" id="first_name" name="first_name" required />
+          <label for="last_name">Last Name:</label>
+          <input type="text" id="last_name" name="last_name" required />
+          <label for="company_name">Company Name:</label>
+          <input type="text" id="company_name" name="company_name" />
+          <label for="solution_type">Type of Solution:</label>
+          <select id="solution_type" name="solution_type">
+            <option value="Website Development">Website Development</option>
+            <option value="Mobile App Development">
+              Mobile App Development
+            </option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="SEO">SEO</option>
+            <option value="Social Media Management">
+              Social Media Management
+            </option>
+            <!-- Add more options as needed -->
+          </select>
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="main.js"></script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+      import {
+        collection,
+        doc,
+        addDoc,
+        getDoc,
+        getFirestore,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+      
+      import { firebaseConfig } from "./firebaseConfig.js";
+      const app2 = initializeApp(firebaseConfig);
+      const db2 = getFirestore(app2);
+      // Refernece contactInfo collections
+      let contactInfo = doc(db2, "contactForm", "contactForm");
+      document
+        .querySelector("#contact-form")
+        .addEventListener("submit", submitForm);
+
+      function submitForm(e) {
+        e.preventDefault();
+
+        //   Get input Values
+        let first_name = document.getElementById("first_name").value;
+        let last_name = document.getElementById("last_name").value;
+        let company_name = document.getElementById("company_name").value;
+        let solution_type = document.getElementById("solution_type").value;
+        let description = document.getElementById("description").value;
+        console.log(
+          first_name,
+          last_name,
+          company_name,
+          solution_type,
+          description
+        );
+
+        saveContactInfo(
+          first_name,
+          last_name,
+          company_name,
+          solution_type,
+          description
+        );
+
+        document.querySelector("#contact-form").reset();
+      }
+
+      // Save infos to Firebase
+      async function saveContactInfo(
+        first_name,
+        last_name,
+        company_name,
+        solution_type,
+        description
+      ) {
+        const someCol = collection(db2, "contactForm");
+        const newDoc = await addDoc(someCol, {
+          first_name: first_name,
+          last_name: last_name,
+          company_name: company_name,
+          solution_type: solution_type,
+          description: description,
+        });
+      }
+    </script>
+    <div class="bg"></div>
+
+    <div class="star-field">
+      <div class="layer"></div>
+      <div class="layer"></div>
+      <div class="layer"></div>
+  </body>
+</html>
