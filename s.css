@@ -1274,6 +1274,7 @@ section:hover .img {
     display: none;
   }
   .typewrite{
+    display: none;
   }
   .container .logo {
     display: none;
